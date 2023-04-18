@@ -1,23 +1,14 @@
-public class Squat extends SoortOefening {
+public class Squat extends Oefeningen {
 
 
     public Squat(String naam, String beschrijving, int sets, int reps, int gewicht) {
-        super(naam, beschrijving, sets, reps, gewicht);
-        this.gewicht = gewicht;
+            super(naam, beschrijving, sets, reps, gewicht);
+
 
     }
-
-    public int getGewicht() {
-        return gewicht;
-    }
-
-    public void setGewicht(int gewicht) {
-        this.gewicht = gewicht;
-    }
-
 
     @Override
     public void trackProgressie() {
-        System.out.println("Je squat progressie" /**/);
+        System.out.println("Je huidige squat progressie is: " );
     }
 }
