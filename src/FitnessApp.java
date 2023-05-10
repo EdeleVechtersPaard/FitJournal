@@ -10,7 +10,7 @@ public class FitnessApp {
         ArrayList<Oefeningen> oefeningen = new ArrayList<>();
         oefeningen.add(new Squat("Squat", "Been oefening", 5, 8, 120));
         oefeningen.add(new BenchPress("Bench press", "Borst oefening", 5, 8, 85));
-        oefeningen.add(new Deadlift("Deadlift","rug oefening", 5,  8, 130));
+        oefeningen.add(new Deadlift(oefeningen, "Deadlift","rug oefening", 5,  8, 130));
         System.out.println("Welkom bij onze fitness applicatie!");
 
         boolean exit = false;
@@ -37,11 +37,11 @@ public class FitnessApp {
                     int oefeningKeuze = scanner1.nextInt();
 
                     if (oefeningKeuze == 1) {
-                        Oefeningen squat =  oefeningen.get(0);
+                        Oefeningen squat = oefeningen.get(0);
                         System.out.println("Je hebt gekozen voor de Squat.");
                         System.out.println("Huidige gewicht: " + squat.getGewicht() + " kg");
                         System.out.println("Wil je de progressie aanpassen? (ja/nee)");
-                        String antwoord = scanner1.next();
+                        String antwoord = scanner1.nextLine();
                         if (antwoord.equals("ja")) {
                             System.out.println("Voer het nieuwe gewicht in:");
                             int nieuwGewicht = scanner1.nextInt();
@@ -58,6 +58,7 @@ public class FitnessApp {
                         break;
 
                     }
+
                     if (oefeningKeuze == 2) {
                         Oefeningen benchPress = oefeningen.get(1);
                         System.out.println("Je hebt gekozen voor de Squat.");
@@ -80,7 +81,8 @@ public class FitnessApp {
                         }
                         break;
                     }
-                        if (oefeningKeuze == 3){
+
+                    if (oefeningKeuze == 3){
                         Oefeningen Deadlift =  oefeningen.get(2);
                         System.out.println("Je hebt gekozen voor de Squat.");
                         System.out.println("Huidige gewicht: " + Deadlift.getGewicht() + " kg");
@@ -102,61 +104,65 @@ public class FitnessApp {
                         }
                         break;
                     }
-                        case 2:
-                                for(int i = 0; i<favorieten.getFavOefeningen().size(); i++){
-                                    System.out.println("Naam: " + favorieten.getFavOefeningen().get(i).getNaam());
-                                    System.out.println("Beschrijving: " + favorieten.getFavOefeningen().get(i).getBeschrijving());
-                                    System.out.println("Sets: " + favorieten.getFavOefeningen().get(i).getSets());
-                                    System.out.println("Reps: " + favorieten.getFavOefeningen().get(i).getReps());
-                                    System.out.println("Gewicht: " + favorieten.getFavOefeningen().get(i).getGewicht() + " KG\n");
-                                }
-                            break;
-                        case 3:
-                            System.out.println("Alle oefeningen:");
 
-                            for (Oefeningen oefening : oefeningen) {
-                                System.out.println("\nNaam: " + oefening.getNaam());
-                                System.out.println("Beschrijving: " + oefening.getBeschrijving());
-                                System.out.println("Sets: " + oefening.getSets());
-                                System.out.println("Reps: " + oefening.getReps());
-                                System.out.println("Gewicht: " + oefening.getGewicht());
-                                oefening.trackProgressie();
-                            }
-                            System.out.println("\nWil je een van deze oefeningen toevoegen aan je favorieten? ");
-                            System.out.println("(ja/nee)");
-                            String antwoord = scanner.nextLine();
-                            if (antwoord.equals("ja")) {
-                                System.out.println("Welke oefening wil je toevoegen aan je favorieten?");
-                                System.out.println("1. Squat");
-                                System.out.println("2. Bench press");
-                                System.out.println("3. Deadlift");
+                case 2:
+                    for(int i = 0; i<favorieten.getFavOefeningen().size(); i++){
+                        System.out.println("Naam: " + favorieten.getFavOefeningen().get(i).getNaam());
+                        System.out.println("Beschrijving: " + favorieten.getFavOefeningen().get(i).getBeschrijving());
+                        System.out.println("Sets: " + favorieten.getFavOefeningen().get(i).getSets());
+                        System.out.println("Reps: " + favorieten.getFavOefeningen().get(i).getReps());
+                        System.out.println("Gewicht: " + favorieten.getFavOefeningen().get(i).getGewicht() + " KG\n");
+                    }
+                    break;
 
-                            }else {
-                                break;
-                            }
-                            int keuze = scanner.nextInt();
-                            if (keuze == 1) {
-                                System.out.println("Squat is toegevoegd aan je favorieten!");
-                                favorieten.addFavOefening(oefeningen.get(0));
-                                break;
-                            }
-                            else if(keuze == 2){
-                                System.out.println("BenchPress is toegevoegd aan je favorieten!");
-                                favorieten.addFavOefening(oefeningen.get(1));
-                                break;
-                            } else if(keuze == 3){
-                                System.out.println("Deadlift is toegevoegd aan je favorieten!");
-                                favorieten.addFavOefening(oefeningen.get(2));
-                                break;
-                            }
-                        case 4:
-                            exit = true;
-                            break;
-                        default:
-                            System.out.println("Ongeldige keuze. Probeer opnieuw.");
-                            break;
+                case 3:
+                    System.out.println("Alle oefeningen:");
+
+                    for (Oefeningen oefening : oefeningen) {
+                        System.out.println("\nNaam: " + oefening.getNaam());
+                        System.out.println("Beschrijving: " + oefening.getBeschrijving());
+                        System.out.println("Sets: " + oefening.getSets());
+                        System.out.println("Reps: " + oefening.getReps());
+                        System.out.println("Gewicht: " + oefening.getGewicht());
+                        oefening.trackProgressie();
+                    }
+                    System.out.println("\nWil je een van deze oefeningen toevoegen aan je favorieten? ");
+                    System.out.println("(ja/nee)");
+                    String antwoord = scanner.nextLine();
+                    if (antwoord.equals("ja")) {
+                        System.out.println("Welke oefening wil je toevoegen aan je favorieten?");
+                        System.out.println("1. Squat");
+                        System.out.println("2. Bench press");
+                        System.out.println("3. Deadlift");
+
+                    }else {
+                        break;
                     }
 
+                    int keuze = scanner.nextInt();
+
+                    if (keuze == 1) {
+                        System.out.println("Squat is toegevoegd aan je favorieten!");
+                        favorieten.addFavOefening(oefeningen.get(0));
+                        break;
+                    }
+                    else if(keuze == 2){
+                        System.out.println("BenchPress is toegevoegd aan je favorieten!");
+                        favorieten.addFavOefening(oefeningen.get(1));
+                        break;
+                    } else if(keuze == 3){
+                        System.out.println("Deadlift is toegevoegd aan je favorieten!");
+                        favorieten.addFavOefening(oefeningen.get(2));
+                        break;
+                    }
+
+                case 4:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Ongeldige keuze. Probeer opnieuw.");
+                    break;
+            }
         }
         System.out.println("Bedankt voor het gebruik van onze fitness applicatie!");
 

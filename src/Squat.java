@@ -9,6 +9,6 @@ public class Squat extends Oefeningen {
 
     @Override
     public void trackProgressie() {
-        System.out.println("Je huidige squat progressie is: " );
+        System.out.println("Je huidige squat PR is: " );
     }
 }

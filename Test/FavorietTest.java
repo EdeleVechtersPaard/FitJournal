@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FavorietTest {
-
+    //checked of een favoriete oefening correct wordt toegevoegd aan de arraylist.
     @Test
     public void testFavorietToevoegen(){
         Favoriet favoriet = new Favoriet();

@@ -7,6 +7,7 @@ public class BenchPress extends Oefeningen {
 
     @Override
     public void trackProgressie() {
-        System.out.println("Je huidige bench press progressie is: ");
+        System.out.println("Je huidige bench press PR is: ");
     }
+
 }
