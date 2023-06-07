@@ -9,10 +9,10 @@ class OefeningenTest {
     @Test
     public void testGewichtSetter() {
         Oefeningen oefening = new Squat("Squat", "Been oefening", 3, 5, 120);
-        assertEquals(120,oefening.getGewicht());
+        assertEquals(120,oefening.getLeaderboardGewicht());
 
-        oefening.setGewicht(150);
-        assertEquals(150, oefening.getGewicht());
+        oefening.setLeaderboardGewicht(150);
+        assertEquals(150, oefening.getLeaderboardGewicht());
 
     }
 }

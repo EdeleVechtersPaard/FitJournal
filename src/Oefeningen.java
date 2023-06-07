@@ -3,16 +3,15 @@ abstract public class Oefeningen {
      private String beschrijving;
      private int sets;
      private int reps;
-     public int gewicht;
+     private int gewicht;
 
-     public Oefeningen(String naam, String beschrijving, int sets, int reps, int gewicht) {
+    public Oefeningen(String naam, String beschrijving, int sets, int reps, int gewicht) {
          this.naam = naam;
          this.beschrijving = beschrijving;
          this.sets = sets;
          this.reps = reps;
          this.gewicht = gewicht;
      }
-
 
      public abstract void trackProgressie();
 
@@ -48,15 +47,13 @@ abstract public class Oefeningen {
          this.reps = reps;
      }
 
-     public int getGewicht() {
-         return gewicht;
-     }
-
-     public void setGewicht(int nieuwGewicht) {
-         this.gewicht = nieuwGewicht;
-     }
-
- }
+    public int getGewicht() {
+        return gewicht;
+    }
+    public void setGewicht(int gewicht) {
+        this.gewicht = gewicht;
+    }
+}
 
 
 
