@@ -1,0 +1,4 @@
+interface WeightRecord {
+
+     void trackProgresie();
+}

@@ -3,17 +3,17 @@ import java.util.List;
 
 public class Notification implements Subject {
 
-    private List<NieuwsBriefSubscriber> subs = new ArrayList<>();
+    private List<Member> subs = new ArrayList<>();
      String title;
 
     @Override
-    public void subscribe(NieuwsBriefSubscriber sub)
+    public void subscribe(Member sub)
     {
         subs.add(sub);
     }
 
     @Override
-    public void unSubscribe(NieuwsBriefSubscriber sub)
+    public void unSubscribe(Member sub)
     {
      subs.remove(sub);
     }
@@ -21,7 +21,7 @@ public class Notification implements Subject {
     @Override
     public void notifySubscribers()
     {
-        for(NieuwsBriefSubscriber sub : subs)
+        for(Member sub : subs)
         {
             sub.update();
         }

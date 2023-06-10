@@ -1,7 +1,7 @@
 public interface Subject {
-    void subscribe(NieuwsBriefSubscriber sub);
+    void subscribe(Member sub);
 
-    void unSubscribe(NieuwsBriefSubscriber sub);
+    void unSubscribe(Member sub);
 
     void notifySubscribers();
 

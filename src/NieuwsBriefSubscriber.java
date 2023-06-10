@@ -11,7 +11,6 @@ public class NieuwsBriefSubscriber implements Observer {
 
     @Override
     public void update() {
-        System.out.printf("Hey " + name + " de news brief met de titel: \""+ notification.title + "\" staat voor je klaar!\n");
 
     }
 

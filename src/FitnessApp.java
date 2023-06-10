@@ -6,17 +6,17 @@ import java.util.Scanner;
 public class FitnessApp {
 
     public static void main(String[] args) {
-        Favoriet favorieten = new Favoriet();
         Scanner scanner = new Scanner(System.in);
+        Favoriet favorieten = new Favoriet();
         ArrayList<PR> prGewicht = new ArrayList<>();
 
         //code voor de newsletter
         Notification notification = new Notification();
-        NieuwsBriefSubscriber subscriber1 = new NieuwsBriefSubscriber("Sjaakie");
-        NieuwsBriefSubscriber subscriber2 = new NieuwsBriefSubscriber("Willem");
-        NieuwsBriefSubscriber subscriber3 = new NieuwsBriefSubscriber("Pieter");
-        NieuwsBriefSubscriber subscriber4 = new NieuwsBriefSubscriber("Koen");
-        NieuwsBriefSubscriber subscriber5 = new NieuwsBriefSubscriber("Bas");
+        Member subscriber1 = new Member("Sjaakie");
+        Member subscriber2 = new Member("Willem");
+        Member subscriber3 = new Member("Pieter");
+        Member subscriber4 = new Member("Koen");
+        Member subscriber5 = new Member("Bas");
 
         notification.subscribe(subscriber1);
         notification.subscribe(subscriber2);
@@ -29,8 +29,6 @@ public class FitnessApp {
         subscriber3.subscribeChannel(notification);
         subscriber4.subscribeChannel(notification);
         subscriber5.subscribeChannel(notification);
-
-        notification.upload("Diskwalificatie voor dubbelspelers op Roland Garros wegens geraakt ballenmeisje");
         //Einde van de code voor newsletter
 
         ArrayList<Member> members = new ArrayList<>();
@@ -131,7 +129,17 @@ public class FitnessApp {
                         System.out.println("Beschrijving: " + oefening.getBeschrijving());
                         System.out.println("Sets: " + oefening.getSets());
                         System.out.println("Reps: " + oefening.getReps());
-                        oefening.trackProgressie();
+
+                        //Dit is nodig om trackProgressie te gebruiken in mijn menu.
+                        if(oefening instanceof Squat){
+                            ((Squat) oefening).trackProgresie();
+                        }
+                        if(oefening instanceof Deadlift){
+                            ((Deadlift) oefening).trackProgresie();
+                        }
+                        if(oefening instanceof BenchPress){
+                            ((BenchPress) oefening).trackProgresie();
+                        }
                     }
                     System.out.println("\nWil je een van deze oefeningen toevoegen aan je favorieten? ");
                     System.out.println("(ja/nee)");
@@ -164,7 +172,9 @@ public class FitnessApp {
                 case 4:
                     exit = true;
                     break;
-
+                case 5: //nieuws brief case
+                    notification.upload("Diskwalificatie voor dubbelspelers op Roland Garros wegens geraakt ballenmeisje");
+                    break;
                 default:
                     System.out.println("Ongeldige keuze. Probeer opnieuw.");
                     break;

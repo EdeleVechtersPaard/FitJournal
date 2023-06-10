@@ -1,4 +1,4 @@
-abstract public class Oefeningen {
+public class Oefeningen {
      private String naam;
      private String beschrijving;
      private int sets;
@@ -13,7 +13,6 @@ abstract public class Oefeningen {
          this.gewicht = gewicht;
      }
 
-     public abstract void trackProgressie();
 
      public String getBeschrijving() {
          return beschrijving;

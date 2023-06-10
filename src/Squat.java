@@ -1,4 +1,4 @@
-public class Squat extends Oefeningen {
+public class Squat extends Oefeningen implements WeightRecord{
 
     public Squat(String naam, String beschrijving, int sets, int reps,int gewicht) {
         super(naam, beschrijving, sets, reps, gewicht);
@@ -7,7 +7,7 @@ public class Squat extends Oefeningen {
     }
 
     @Override
-    public void trackProgressie() {
+    public void trackProgresie() {
         System.out.println("Je huidige squat progressie is: " +  getGewicht() + "KG" );
     }
 }
